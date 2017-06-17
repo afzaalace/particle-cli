@@ -68,6 +68,8 @@ var ApiClient = function (baseUrl, access_token) {
 
 	this.request = request.defaults({
 		baseUrl: baseUrl || settings.apiUrl,
+		clientId: settings.clientId,
+		clientSecret: settings.clientSecret,
 		proxy: settings.proxyUrl || process.env.HTTPS_PROXY || process.env.https_proxy
 	});
 };
@@ -177,7 +179,7 @@ ApiClient.prototype = {
 					password: password,
 					grant_type: 'password',
 					client_id: client_id,
-					client_secret: 'client_secret_here'
+					client_secret: settings.clientSecret
 				},
 				json: true
 			}, function (error, response, body) {

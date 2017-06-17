@@ -37,6 +37,7 @@ var settings = {
 	apiUrl: 'https://api.particle.io',
 	buildUrl: 'https://build.particle.io',
 	clientId: 'CLI2',
+	clientSecret: 'particle-cli',
 	access_token: null,
 	minimumApiDelay: 500,
 	//useOpenSSL: true,

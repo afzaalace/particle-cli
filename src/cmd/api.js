@@ -2,6 +2,7 @@ import fs from 'fs';
 import when from 'when';
 import Particle from 'particle-api-js';
 import log from '../app/log';
+import settings from '../../settings';
 import _ from 'lodash';
 import url from 'url';
 import chalk from 'chalk';
@@ -23,8 +24,8 @@ class ParticleApi {
 	constructor(baseUrl, options) {
 		this.api = new Particle({
 			baseUrl: baseUrl,
-			clientId: options.clientId || 'particle-cli',
-			clientSecret: 'particle-cli',
+			clientId: settings.clientId || 'particle-cli',
+			clientSecret: settings.clientSecret || 'particle-cli',
 			tokenDuration: 7776000, // 90 days
 			debug: this._debug.bind(this)
 		});

@@ -14,6 +14,8 @@ function APIClient2(baseUrl, token) {
 	this.__token = token || settings.access_token;
 	this.request = request.defaults({
 		baseUrl: baseUrl || settings.apiUrl,
+		clientId: settings.clientId,
+		clientSecret: settings.clientSecret,
 		proxy: settings.proxyUrl || process.env.HTTPS_PROXY || process.env.https_proxy
 	});
 };
@@ -86,7 +88,7 @@ APIClient2.prototype.createAccessToken = function(clientId, user, pass, cb) {
 			password: pass,
 			grant_type: 'password',
 			client_id: clientId,
-			client_secret: 'client_secret_here'
+			client_secret: settings.clientSecret
 
 		},
 		json: true
